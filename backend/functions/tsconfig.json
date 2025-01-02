@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",        // Changed from NodeNext
+    "esModuleInterop": true,
+    "moduleResolution": "node",  // Changed from nodenext
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017",
+    "skipLibCheck": true        // Added to skip problematic type declarations
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}

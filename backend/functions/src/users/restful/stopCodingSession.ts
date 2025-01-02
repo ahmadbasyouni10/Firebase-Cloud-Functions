@@ -17,7 +17,8 @@ export const stopCodingSession = onRequest(async (req, res) => {
             // Calculate the duration of the session
             const lastActive = sessionData.lastActive.toDate();
             const now = new Date();
-            const duration = Math.floor((now.getTime() - lastActive.getTime()) / 6000);
+            // convert from ms to minutes 1 min -> 60000 ms
+            const duration = Math.floor((now.getTime() - lastActive.getTime()) / 60000);
 
             await db.collection("coding_history").add({
                 userId,
@@ -26,9 +27,7 @@ export const stopCodingSession = onRequest(async (req, res) => {
                 duration
             })
             
-            await sessionRef.update({
-                isActive: false
-            })
+            await sessionRef.delete();
         }
 
         res.json({

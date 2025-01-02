@@ -1,8 +1,5 @@
 import { onRequest } from "firebase-functions/https";
 import { getFirestore } from "firebase-admin/firestore";
-import { initializeApp } from "firebase-admin/app";
-
-initializeApp();
 
 export const addPaymentMethod = onRequest(async (req, res) => {
     try {

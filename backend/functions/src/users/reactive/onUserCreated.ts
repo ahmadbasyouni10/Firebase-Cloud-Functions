@@ -8,6 +8,7 @@ export const onUserCreated = onDocumentCreated("users/{userId}", (event) => {
         logger.info("New user created", {
             userId: event.params.userId,
             email: userData?.email,
+            name: userData?.name
         });
         
         // We return this Promise so Firebase knows to wait 

@@ -1,0 +1,18 @@
+{
+  "main": "./dist/main.js",
+  "scripts": {
+    "copy-files": "copyfiles -u 1 \"src/assets/**/*\" assets/ && copyfiles -u 1 \"src/**/*.{html,css}\" dist/",
+    "build": "tsc && npm run copy-files",
+    "start": "npm run build && electron .",
+    "dev": "npm run build && electron . --debug"
+  },
+  "dependencies": {
+    "electron": "^33.2.1",
+    "firebase": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.4",
+    "copyfiles": "^2.4.1",
+    "typescript": "^5.7.2"
+  }
+}

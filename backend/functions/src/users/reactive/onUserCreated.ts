@@ -1,8 +1,10 @@
 import { onDocumentCreated } from "firebase-functions/firestore";
 import { logger } from "firebase-functions";
 
+// event is the event that triggered the function document here
 export const onUserCreated = onDocumentCreated("users/{userId}", (event) => {
     try {
+        // doing event.data.data gives us the data of the document that triggered the function
         const userData = event.data?.data();
 
         logger.info("New user created", {

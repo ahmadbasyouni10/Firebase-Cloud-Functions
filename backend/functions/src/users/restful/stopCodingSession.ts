@@ -19,7 +19,8 @@ export const stopCodingSession = onRequest(async (req, res) => {
             const now = new Date();
             // convert from ms to minutes 1 min -> 60000 ms
             const duration = Math.floor((now.getTime() - lastActive.getTime()) / 60000);
-
+            // send the session data to the coding history collection
+            // and delete the active session
             await db.collection("coding_history").add({
                 userId,
                 editor: sessionData.editor,
